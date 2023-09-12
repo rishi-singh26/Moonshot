@@ -28,8 +28,6 @@ struct AstronautView: View {
             }
             .padding(.horizontal)
         }
-        .background(.darkBackground)
-        .preferredColorScheme(.dark)
     }
 }
 

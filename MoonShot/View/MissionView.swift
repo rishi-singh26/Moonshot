@@ -25,6 +25,10 @@ struct MissionView: View {
                         .frame(maxWidth: geo.size.width * 0.6)
                         .padding(.top)
                     
+                    Text(mission.formattedLaunchDate)
+                        .font(.headline.bold())
+                        .padding(.top)
+                    
                     CustomDivider()
                         .padding(.horizontal)
                     
@@ -79,7 +83,6 @@ struct MissionView: View {
         }
         .navigationTitle(mission.diaplayName)
         .navigationBarTitleDisplayMode(.inline)
-        .background(.darkBackground)
     }
     
     init(mission: Mission, astranauts: [String: Astronaut]) {
