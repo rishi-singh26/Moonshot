@@ -7,33 +7,16 @@
 
 import SwiftUI
 
-struct User: Codable {
-    let name: String
-    let address: Address
-}
-
-struct Address: Codable {
-    let street: String
-    let city: String
-}
-
 struct ContentView: View {
+    let layout = [
+        GridItem(.adaptive(minimum: 80))
+    ]
     var body: some View {
-        Button("Decode JSON") {
-            let input = """
-                        {
-                            "name": "Talor Swift",
-                            "address": {
-                                "street": "1st street 2nd lane",
-                                "city": "Nashville"
-                            }
-                        }
-                        """
-            let data = Data(input.utf8)
-            if let user = try? JSONDecoder().decode(User.self, from: data) {
-                print(user)
-            } else {
-                print("Error")
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: layout) {
+                ForEach(0..<1000) {
+                    Text("Item \($0)")
+                }
             }
         }
     }
