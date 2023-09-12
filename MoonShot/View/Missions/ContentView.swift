@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            Group {
                 if showingList {
                     List(missions) { mission in
                         NavigationLink {
