@@ -7,15 +7,30 @@
 
 import SwiftUI
 
+struct TextView: View {
+    let text: String
+    
+    var body: some View {
+        Text(text)
+    }
+    
+    init(_ text: String) {
+        self.text = text
+        print("Creating a new custom text")
+    }
+}
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 10) {
+                ForEach(0..<100) {
+                    TextView("Item \($0)")
+                        .font(.title)
+                }
+            }
+            .frame(maxWidth: .infinity)
         }
-        .padding()
     }
 }
 
